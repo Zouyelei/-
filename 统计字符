@@ -1,0 +1,37 @@
+#include<stdio.h>
+#include<string.h>
+int main(){
+	int ch1l,ch2l,n;
+	char ch1[10240],ch2[100];
+	int p(char ch1[],char ch2[],int ch1l,int ch2l);
+	printf("请输入你需要查询的句子：\n");
+	strlwr(gets(ch1));
+	ch1l=strlen(ch1);
+	printf("请输入你要查询的单词：\n");
+	strlwr(gets(ch2));
+	ch2l=strlen(ch2);
+	n=p(ch1,ch2,ch1l,ch2l);
+	printf("%s在句子里面出现了%d次。\n",ch2,n);
+}
+int p(char ch1[],char ch2[],int ch1l,int ch2l){
+	int i=0,j=0,m,n=0;
+	for(;i<ch1l;){
+		for(j=0,m=0;j<ch2l;j++,i++){
+			if(ch1[i]==ch2[j]){
+				m++;
+				if(m==ch2l){
+					if((ch1[i+1]>'a'&&ch1[i+1]<'z')||(ch1[i-j-1]>'a'&&ch1[i-j-1]<'z')){
+						i++;
+						break;
+					}
+					n++;
+				}
+			}
+			else{
+				i++;
+				break;
+			}
+		}
+	}
+	return n;
+}
