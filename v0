@@ -1,0 +1,9 @@
+#include"stdio.h"
+int main(){
+	int x,y,s;
+	char a[]="3+4";
+	x=a[0]-'0';
+	y=a[2]-'0';
+	s=x+y;
+	printf("%s=%d\n",a,s);
+}
