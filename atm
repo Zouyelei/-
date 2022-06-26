@@ -7,15 +7,14 @@ int Y;
 int language()
 {
 	int m;
-	scanf("%d",&m);
-	getchar();
-	if (m==1)
+	while(1)
 	{
-		return 1;
-	}
-	if(m==0)
-	{
-		return 0;
+		m=getch();
+		switch (m)
+		{
+			case '0':return 0;system("cls"); break;
+			case '1':return 1;system("cls"); break;
+		}
 	}
 }
 struct Account
